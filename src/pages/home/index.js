@@ -3,9 +3,9 @@ import { getPets } from '../../api/petfinder';
 import Hero from '../../components/hero';
 
 // import useParams
-import { useParams } from 'react-router-dom';
 
 // import Link
+import { Link, useParams } from 'react-router-dom';
 
 const HomePage = () => {
   const [data, setData] = useState(null);
@@ -35,9 +35,9 @@ const HomePage = () => {
       {data.length ? (
         <div className='grid'>
           {data.map((animal) => (
-            <a // Change me to a Link!
+            <Link // Change me to a Link!
               key={animal.id}
-              href={`/${animal.type.toLowerCase()}/${animal.id}`}
+              to={`/${animal.type.toLowerCase()}/${animal.id}`}
               className='pet'>
               <article>
                 <div className='pet-image-container'>
@@ -54,7 +54,7 @@ const HomePage = () => {
                 <p>Color: {animal.colors.primary}</p>
                 <p>Gender: {animal.gender}</p>
               </article>
-            </a> // Don't forget to change me!
+            </Link> // Don't forget to change me!
           ))}
         </div>
       ) : (
