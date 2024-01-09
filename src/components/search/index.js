@@ -20,7 +20,10 @@ const Search = () => {
     const query = createSearchParams(searchQuery);
 
     // imperatively redirect with useNavigate() returned function
-    navigate('/search?name=fido');
+    navigate({
+      pathname: '/search',
+      search: `?${query}`, // notice you'll need the leading `?`
+    });
   };
 
   return (
